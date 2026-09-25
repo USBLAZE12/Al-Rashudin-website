@@ -1,49 +1,55 @@
 import { NextResponse } from "next/server";
+import { companyInfo } from "@/lib/company";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, phone, company, subject, message } = body;
+    const { name, email, phone, company, subject, message, craneModel } = body;
 
     // Validate required fields
-    if (!name || !email || !subject || !message) {
+    if (!name || !phone || !subject || !message) {
       return NextResponse.json(
-        { error: "Missing required fields" },
+        { error: "Missing required fields: name, phone, subject, message" },
         { status: 400 }
       );
     }
 
-    // In a real application, you would:
-    // 1. Send an email notification
-    // 2. Save to database
-    // 3. Send confirmation email to customer
-    // For now, we'll simulate a successful submission
-
+    // Log for server
     console.log("Contact form submission:", {
       name,
       email,
       phone,
       company,
+      craneModel,
       subject,
       message,
       timestamp: new Date().toISOString(),
     });
 
-    // Simulate processing delay
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    // Build WhatsApp message for manual follow-up
+    const whatsappText = `New Enquiry: ${name} - ${subject} - ${phone} - ${craneModel || "N/A"} - ${message.substring(0, 100)}`;
+    const whatsappLink = `https://wa.me/${companyInfo.contact.whatsapp}?text=${encodeURIComponent(whatsappText)}`;
+
+    // Simulate processing
+    await new Promise((resolve) => setTimeout(resolve, 500));
 
     return NextResponse.json(
       {
         success: true,
-        message:
-          "Thank you for your enquiry. We will get back to you within 24 hours.",
+        message: "Thank you! We will contact you within 2 hours via WhatsApp/phone.",
+        whatsappLink,
+        contact: {
+          whatsapp: companyInfo.contact.whatsappDisplay,
+          phone: companyInfo.contact.primaryPhone,
+          email: companyInfo.contact.email,
+        },
       },
       { status: 200 }
     );
   } catch (error) {
     console.error("Contact form error:", error);
     return NextResponse.json(
-      { error: "Failed to process your enquiry. Please try again." },
+      { error: "Failed to process your enquiry. Please WhatsApp us directly." },
       { status: 500 }
     );
   }
