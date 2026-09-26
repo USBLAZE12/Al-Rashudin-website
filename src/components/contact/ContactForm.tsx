@@ -1,12 +1,9 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { useSearchParams } from "next/navigation";
 
-function ContactFormInner() {
-  const searchParams = useSearchParams();
-
+export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,25 +15,8 @@ function ContactFormInner() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  useEffect(() => {
-    const subj = searchParams.get("subject");
-    const part = searchParams.get("part");
-
-    if (subj || part) {
-      setFormData((prev) => ({
-        ...prev,
-        subject: subj === "quote" ? "quote" : subj || prev.subject,
-        message: part
-          ? `Hello, I would like to request pricing and stock availability for Part No: ${part}.`
-          : prev.message,
-      }));
-    }
-  }, [searchParams]);
-
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -45,15 +25,8 @@ function ContactFormInner() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    try {
-      await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-    } catch {
-      // Fallback grace
-    }
+    // Simulate API call
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
     setIsSubmitting(false);
     setSubmitted(true);
@@ -66,7 +39,7 @@ function ContactFormInner() {
       message: "",
     });
 
-    setTimeout(() => setSubmitted(false), 7000);
+    setTimeout(() => setSubmitted(false), 5000);
   };
 
   return (
@@ -76,34 +49,26 @@ function ContactFormInner() {
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
       id="inquiry"
-      className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-10 shadow-sm"
     >
-      <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-2 tracking-tight">
-        Send Technical RFQ / Inquiry
+      <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+        Send Enquiry
       </h2>
-      <p className="text-slate-600 text-sm mb-6">
-        Fill out this form and our sales & engineering department will review your
-        parameters and reply with a formal quotation.
-      </p>
 
       {submitted && (
-        <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 mb-6 flex items-start space-x-3">
-          <span className="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5 text-xs font-bold">
-            ✓
-          </span>
-          <p className="text-emerald-800 text-sm font-medium">
-            Thank you for your enquiry! Our engineering team has received your
-            specifications and will contact you within 24 hours.
+        <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-4 mb-6">
+          <p className="text-green-400 text-sm">
+            ✓ Thank you for your enquiry! We&apos;ll get back to you within 24
+            hours.
           </p>
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-5">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label
               htmlFor="name"
-              className="block text-slate-700 text-xs font-bold uppercase tracking-wider mb-2"
+              className="block text-gray-300 text-sm font-medium mb-2"
             >
               Full Name *
             </label>
@@ -114,16 +79,16 @@ function ContactFormInner() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-100 transition-all text-sm"
-              placeholder="e.g. John Doe"
+              className="w-full bg-card border border-border rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+              placeholder="Your full name"
             />
           </div>
           <div>
             <label
               htmlFor="email"
-              className="block text-slate-700 text-xs font-bold uppercase tracking-wider mb-2"
+              className="block text-gray-300 text-sm font-medium mb-2"
             >
-              Business Email *
+              Email Address *
             </label>
             <input
               type="email"
@@ -132,19 +97,19 @@ function ContactFormInner() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-100 transition-all text-sm"
-              placeholder="name@company.com"
+              className="w-full bg-card border border-border rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+              placeholder="your@email.com"
             />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label
               htmlFor="phone"
-              className="block text-slate-700 text-xs font-bold uppercase tracking-wider mb-2"
+              className="block text-gray-300 text-sm font-medium mb-2"
             >
-              Phone / WhatsApp Number
+              Phone Number
             </label>
             <input
               type="tel"
@@ -152,16 +117,16 @@ function ContactFormInner() {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-100 transition-all text-sm"
+              className="w-full bg-card border border-border rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
               placeholder="+971 50 123 4567"
             />
           </div>
           <div>
             <label
               htmlFor="company"
-              className="block text-slate-700 text-xs font-bold uppercase tracking-wider mb-2"
+              className="block text-gray-300 text-sm font-medium mb-2"
             >
-              Company / Fleet Name
+              Company Name
             </label>
             <input
               type="text"
@@ -169,8 +134,8 @@ function ContactFormInner() {
               name="company"
               value={formData.company}
               onChange={handleChange}
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-100 transition-all text-sm"
-              placeholder="Your organization"
+              className="w-full bg-card border border-border rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+              placeholder="Your company"
             />
           </div>
         </div>
@@ -178,9 +143,9 @@ function ContactFormInner() {
         <div>
           <label
             htmlFor="subject"
-            className="block text-slate-700 text-xs font-bold uppercase tracking-wider mb-2"
+            className="block text-gray-300 text-sm font-medium mb-2"
           >
-            Subject / Requirement Type *
+            Subject *
           </label>
           <select
             id="subject"
@@ -188,24 +153,23 @@ function ContactFormInner() {
             value={formData.subject}
             onChange={handleChange}
             required
-            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:bg-white focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-100 transition-all text-sm"
+            className="w-full bg-card border border-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
           >
-            <option value="">Select an inquiry category</option>
-            <option value="quote">Request a Price Quote for Hydraulic Parts</option>
-            <option value="cylinder">Hydraulic Cylinder Repair & Honing</option>
-            <option value="crane">Crane Boom / Slewing Component Sourcing</option>
-            <option value="custom">Custom Machined Polyurethane Seal</option>
-            <option value="bulk">Bulk Fleet Maintenance Order</option>
-            <option value="general">General Support</option>
+            <option value="">Select a subject</option>
+            <option value="quote">Request a Quote</option>
+            <option value="technical">Technical Support</option>
+            <option value="bulk">Bulk Order Inquiry</option>
+            <option value="custom">Custom Part Request</option>
+            <option value="general">General Inquiry</option>
           </select>
         </div>
 
         <div>
           <label
             htmlFor="message"
-            className="block text-slate-700 text-xs font-bold uppercase tracking-wider mb-2"
+            className="block text-gray-300 text-sm font-medium mb-2"
           >
-            Part Number, Machinery Model or Details *
+            Message *
           </label>
           <textarea
             id="message"
@@ -214,15 +178,15 @@ function ContactFormInner() {
             onChange={handleChange}
             required
             rows={5}
-            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-100 transition-all text-sm resize-none"
-            placeholder="Please specify part numbers, crane models (e.g. Tadano ATF 130G, Liebherr LTM 1100), cylinder bore/rod dimensions, or quantity needed..."
+            className="w-full bg-card border border-border rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors resize-none"
+            placeholder="Describe your requirements, part numbers, or attach photos..."
           />
         </div>
 
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-xl text-base transition-all shadow-md shadow-red-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
             <span className="flex items-center justify-center">
@@ -245,27 +209,13 @@ function ContactFormInner() {
                   d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                 />
               </svg>
-              Transmitting Specifications...
+              Sending...
             </span>
           ) : (
-            "Submit Request for Quotation"
+            "Submit Enquiry"
           )}
         </button>
       </form>
     </motion.div>
-  );
-}
-
-export default function ContactForm() {
-  return (
-    <Suspense
-      fallback={
-        <div className="p-8 text-center bg-white rounded-3xl border border-slate-200 text-slate-500">
-          Loading RFQ Form...
-        </div>
-      }
-    >
-      <ContactFormInner />
-    </Suspense>
   );
 }

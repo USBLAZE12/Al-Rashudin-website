@@ -5,27 +5,27 @@ import { motion } from "framer-motion";
 const values = [
   {
     number: "01",
-    title: "Hands-on Technical Mastery",
+    title: "Expert Workforce",
     description:
-      "Our team is staffed by seasoned machinists, hydraulic mechanics, and toolmakers who understand operating tolerances, seal polymers, and pressure dynamics.",
+      "Our team comprises experienced engineers and certified technicians with extensive hands-on expertise in hydraulic systems and mechanical restoration.",
   },
   {
     number: "02",
-    title: "Quality Without Compromise",
+    title: "Integrity First",
     description:
-      "We source only certified raw materials and OEM-grade seal compounds. Every component delivered to client sites is inspected to meet strict industrial thresholds.",
+      "We maintain absolute transparency in our processes, ensuring that every project meets the exact specifications and tolerances required by heavy industry standards.",
   },
   {
     number: "03",
-    title: "Rapid Customer Turnaround",
+    title: "Continuous Innovation",
     description:
-      "Because crane downtime costs thousands per day, our organization is structured to respond within hours, maintain stock of critical seals, and ship immediately.",
+      "We continuously enhance our technical capabilities by staying aligned with evolving crane technologies, hydraulic systems, and advanced mechanical assemblies.",
   },
 ];
 
 export default function TeamValues() {
   return (
-    <section className="py-24 bg-slate-50 border-t border-slate-200">
+    <section className="py-24 bg-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -35,11 +35,11 @@ export default function TeamValues() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="text-red-600 text-xs sm:text-sm font-bold uppercase tracking-wider inline-block bg-red-100/60 border border-red-200 px-3.5 py-1.5 rounded-full mb-3">
-            Our Guiding Values
+          <span className="text-primary text-sm font-medium uppercase tracking-wider">
+            Our Team & Values
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            What Drives Our Engineering Standards
+          <h2 className="text-3xl md:text-4xl font-bold text-white mt-4">
+            What Drives Us
           </h2>
         </motion.div>
 
@@ -51,16 +51,16 @@ export default function TeamValues() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.12 }}
-              className="bg-white border border-slate-200/90 rounded-2xl p-8 hover:border-red-300 hover:shadow-xl transition-all duration-300 relative shadow-xs"
+              transition={{ duration: 0.5, delay: index * 0.15 }}
+              className="bg-card border border-border rounded-xl p-8 hover:border-primary/30 transition-colors"
             >
-              <div className="text-5xl font-black text-red-100 mb-4 select-none">
+              <div className="text-5xl font-bold text-primary/10 mb-4">
                 {value.number}
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">
+              <h3 className="text-xl font-semibold text-white mb-3">
                 {value.title}
               </h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
+              <p className="text-gray-400 text-sm leading-relaxed">
                 {value.description}
               </p>
             </motion.div>

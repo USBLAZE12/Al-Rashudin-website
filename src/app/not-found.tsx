@@ -2,35 +2,30 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-slate-50 px-4 pt-20">
-      <div className="text-center max-w-lg bg-white border border-slate-200 rounded-3xl p-10 sm:p-14 shadow-sm">
-        <div className="mb-6">
-          <span className="text-8xl font-black text-red-600 tracking-tight">404</span>
+    <main className="min-h-screen flex items-center justify-center bg-background">
+      <div className="text-center px-4">
+        <div className="mb-8">
+          <span className="text-9xl font-bold gradient-text">404</span>
         </div>
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3 tracking-tight">
-          Page or Product Not Found
+        <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          Page Not Found
         </h1>
-        <p className="text-slate-600 text-sm leading-relaxed mb-8">
-          The page or product you are looking for might have been moved, renamed, or is currently unavailable in our active catalog.
+        <p className="text-gray-400 max-w-md mx-auto mb-8">
+          The page you are looking for might have been removed, had its name
+          changed, or is temporarily unavailable.
         </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-3">
+        <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
           <Link
             href="/"
-            className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-xl font-bold text-sm transition-colors shadow-sm"
+            className="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-semibold transition-colors"
           >
             Go to Homepage
           </Link>
           <Link
-            href="/products"
-            className="bg-slate-100 hover:bg-slate-200 text-slate-800 px-6 py-3 rounded-xl font-bold text-sm transition-colors"
-          >
-            Browse Products
-          </Link>
-          <Link
             href="/contact"
-            className="border border-slate-200 hover:border-red-400 text-slate-700 hover:text-red-600 px-6 py-3 rounded-xl font-bold text-sm transition-colors"
+            className="border border-white/20 hover:border-white/40 text-white px-8 py-3 rounded-lg font-semibold transition-colors hover:bg-white/5"
           >
-            Contact Support
+            Contact Us
           </Link>
         </div>
       </div>

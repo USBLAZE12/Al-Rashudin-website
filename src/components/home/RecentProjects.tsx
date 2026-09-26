@@ -27,7 +27,7 @@ const projects = [
 
 export default function RecentProjects() {
   return (
-    <section className="py-24 bg-white border-t border-slate-200">
+    <section className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -37,15 +37,15 @@ export default function RecentProjects() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="text-red-600 text-xs sm:text-sm font-bold uppercase tracking-wider inline-block bg-red-50 border border-red-100 px-3.5 py-1.5 rounded-full mb-3">
-            Case Studies & Work
+          <span className="text-primary text-sm font-medium uppercase tracking-wider">
+            Showcase
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
-            Recent Engineering Projects
+          <h2 className="text-3xl md:text-4xl font-bold text-white mt-4 mb-4">
+            Recent Projects
           </h2>
-          <p className="text-slate-600 max-w-2xl mx-auto text-base">
+          <p className="text-gray-400 max-w-2xl mx-auto">
             A quick overview of our recent engineering projects and component
-            supply work for heavy equipment and crane systems across the region.
+            supply work for heavy equipment and crane systems.
           </p>
         </motion.div>
 
@@ -57,24 +57,24 @@ export default function RecentProjects() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.12 }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
             >
               <Link
                 href={project.href}
-                className="group block relative h-84 rounded-2xl overflow-hidden card-hover shadow-sm border border-slate-200"
+                className="group block relative h-80 rounded-xl overflow-hidden card-hover"
               >
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-108"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <span className="inline-block bg-red-600 text-white text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md mb-2">
+                  <span className="text-primary text-xs font-medium uppercase tracking-wider">
                     {project.category}
                   </span>
-                  <h3 className="text-xl font-bold text-white group-hover:text-red-400 transition-colors leading-snug">
+                  <h3 className="text-xl font-semibold text-white mt-2 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
                 </div>
@@ -88,16 +88,16 @@ export default function RecentProjects() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
           className="text-center mt-12"
         >
           <Link
             href="/projects"
-            className="inline-flex items-center space-x-2 bg-red-50 hover:bg-red-600 text-red-700 hover:text-white border border-red-200 hover:border-red-600 px-6 py-3.5 rounded-xl font-bold text-sm transition-all shadow-xs"
+            className="inline-flex items-center text-primary hover:text-primary-dark font-medium transition-colors"
           >
-            <span>View All Engineering Case Studies</span>
+            View All Projects
             <svg
-              className="w-4 h-4"
+              className="w-5 h-5 ml-2"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

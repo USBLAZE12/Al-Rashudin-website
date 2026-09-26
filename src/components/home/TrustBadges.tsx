@@ -6,7 +6,7 @@ const badges = [
   {
     icon: (
       <svg
-        className="w-7 h-7"
+        className="w-8 h-8"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -20,12 +20,12 @@ const badges = [
       </svg>
     ),
     title: "Fast Shipping",
-    description: "Same-day UAE & 3-5 days global delivery",
+    description: "Global delivery in 3-5 days",
   },
   {
     icon: (
       <svg
-        className="w-7 h-7"
+        className="w-8 h-8"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -38,13 +38,13 @@ const badges = [
         />
       </svg>
     ),
-    title: "OEM Quality Fitment",
-    description: "Guaranteed dimensional match & longevity",
+    title: "OEM Quality",
+    description: "Guaranteed fit & durability",
   },
   {
     icon: (
       <svg
-        className="w-7 h-7"
+        className="w-8 h-8"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -57,13 +57,13 @@ const badges = [
         />
       </svg>
     ),
-    title: "Technical Guidance",
-    description: "Direct assistance from veteran engineers",
+    title: "Expert Support",
+    description: "Talk to a technician",
   },
   {
     icon: (
       <svg
-        className="w-7 h-7"
+        className="w-8 h-8"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -76,21 +76,21 @@ const badges = [
         />
       </svg>
     ),
-    title: "Extensive Stock",
-    description: "Over 5,000+ active seal profiles in stock",
+    title: "24/7 Orders",
+    description: "Premium parts available",
   },
 ];
 
 export default function TrustBadges() {
   return (
-    <section className="relative z-10 -mt-16 sm:-mt-20">
+    <section className="relative z-10 -mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {badges.map((badge, index) => (
             <motion.div
@@ -98,18 +98,14 @@ export default function TrustBadges() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="bg-white border border-slate-200/90 rounded-2xl p-6 text-center hover:border-red-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 shadow-sm"
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-card border border-border rounded-xl p-6 text-center hover:border-primary/30 transition-colors"
             >
-              <div className="w-14 h-14 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-red-100 shadow-xs">
+              <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
                 {badge.icon}
               </div>
-              <h3 className="text-slate-900 font-bold mb-1.5 text-base">
-                {badge.title}
-              </h3>
-              <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
-                {badge.description}
-              </p>
+              <h3 className="text-white font-semibold mb-2">{badge.title}</h3>
+              <p className="text-gray-400 text-sm">{badge.description}</p>
             </motion.div>
           ))}
         </motion.div>

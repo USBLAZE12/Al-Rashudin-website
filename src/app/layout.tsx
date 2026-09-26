@@ -5,9 +5,6 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://alrashudin.com"
-  ),
   title: "Al Rashudin Engineering | Hydraulic Seals & Crane Parts UAE",
   description:
     "Premium hydraulic seals, crane components, and industrial parts. Expert engineering solutions for heavy equipment in UAE and globally.",
@@ -44,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -57,7 +54,9 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-sans antialiased bg-white text-slate-900 selection:bg-red-100 selection:text-red-900">
+      <body
+        className={`font-sans antialiased bg-background text-foreground`}
+      >
         <Header />
         <main>{children}</main>
         <Footer />

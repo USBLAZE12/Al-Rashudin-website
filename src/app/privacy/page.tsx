@@ -2,97 +2,98 @@ import Link from "next/link";
 
 export default function PrivacyPage() {
   return (
-    <main className="pt-36 pb-24 bg-slate-50 min-h-screen">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 bg-white border border-slate-200 rounded-3xl p-8 sm:p-12 shadow-sm">
-        <div className="border-b border-slate-200 pb-6 mb-8">
-          <span className="text-red-600 text-xs font-bold uppercase tracking-wider inline-block bg-red-50 border border-red-100 px-3 py-1 rounded-md mb-2">
-            Legal & Compliance
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Privacy Policy
-          </h1>
-          <p className="text-slate-500 text-xs mt-2">
-            Last Updated: September 2026 | Al Rashudin Engineering, Sharjah, UAE
-          </p>
-        </div>
-
-        <div className="space-y-8 text-slate-600 text-sm sm:text-base leading-relaxed">
+    <main className="pt-32 pb-24 bg-background">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="text-4xl font-bold text-white mb-8">Privacy Policy</h1>
+        
+        <div className="prose prose-invert max-w-none space-y-8">
           <section>
-            <h2 className="text-xl font-bold text-slate-900 mb-3 flex items-center">
-              <span className="w-2 h-4 bg-red-600 rounded mr-2" />
-              1. Information We Collect
-            </h2>
-            <p>
-              When you visit our website, request quotations, or contact our workshop, we may collect the following details:
+            <h2 className="text-2xl font-semibold text-white mb-4">1. Information We Collect</h2>
+            <p className="text-gray-400 leading-relaxed">
+              When you use our website or contact us, we may collect the following information:
             </p>
-            <ul className="list-disc list-inside mt-3 space-y-1.5 pl-2 text-slate-700">
-              <li>Full Name, company organization, and professional job title</li>
-              <li>Business contact coordinates (email address, mobile / WhatsApp phone numbers)</li>
-              <li>Equipment specifications, machinery models, hydraulic cylinder drawings, and RFQ messages</li>
-              <li>Standard website analytics (IP address, device type, browser telemetry)</li>
+            <ul className="list-disc list-inside text-gray-400 mt-3 space-y-2">
+              <li>Name and contact information (email, phone number)</li>
+              <li>Company name and position</li>
+              <li>Inquiry details and messages</li>
+              <li>IP address and browser information (automatically collected)</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-slate-900 mb-3 flex items-center">
-              <span className="w-2 h-4 bg-red-600 rounded mr-2" />
-              2. How We Utilize Customer Information
-            </h2>
-            <p>
-              The information collected is used exclusively for engineering and business transactions:
+            <h2 className="text-2xl font-semibold text-white mb-4">2. How We Use Your Information</h2>
+            <p className="text-gray-400 leading-relaxed">
+              We use the information we collect to:
             </p>
-            <ul className="list-disc list-inside mt-3 space-y-1.5 pl-2 text-slate-700">
-              <li>Preparing accurate technical part cross-references and price quotes</li>
-              <li>Fulfilling customer purchase orders and scheduling courier / freight delivery</li>
-              <li>Providing technical guidance and maintenance recommendations</li>
-              <li>Maintaining warranty logs and quality audit trails</li>
+            <ul className="list-disc list-inside text-gray-400 mt-3 space-y-2">
+              <li>Respond to your inquiries and provide customer support</li>
+              <li>Process orders and deliver products</li>
+              <li>Send important updates about our services</li>
+              <li>Improve our website and services</li>
+              <li>Comply with legal obligations</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-slate-900 mb-3 flex items-center">
-              <span className="w-2 h-4 bg-red-600 rounded mr-2" />
-              3. Data Security & Storage
-            </h2>
-            <p>
-              We enforce administrative and technical safeguards to prevent unauthorized access or accidental loss of your commercial and proprietary engineering documents.
+            <h2 className="text-2xl font-semibold text-white mb-4">3. Information Security</h2>
+            <p className="text-gray-400 leading-relaxed">
+              We implement appropriate security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet is 100% secure.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-slate-900 mb-3 flex items-center">
-              <span className="w-2 h-4 bg-red-600 rounded mr-2" />
-              4. Third-Party Services
-            </h2>
-            <p>
-              We do not sell, rent, or trade your contact information. Relevant shipping data is shared solely with certified courier networks (e.g. DHL, FedEx, local UAE couriers) to fulfill deliveries.
+            <h2 className="text-2xl font-semibold text-white mb-4">4. Third-Party Services</h2>
+            <p className="text-gray-400 leading-relaxed">
+              We may use third-party services for analytics, payment processing, and communication. These services have their own privacy policies, and we encourage you to review them.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-slate-900 mb-3 flex items-center">
-              <span className="w-2 h-4 bg-red-600 rounded mr-2" />
-              5. Contact Us Regarding Privacy
-            </h2>
-            <p>
-              For any questions regarding this Privacy Policy or your recorded details, please email{" "}
-              <a
-                href="mailto:info@alrashudin.com"
-                className="text-red-600 font-bold hover:underline"
-              >
-                info@alrashudin.com
-              </a>{" "}
-              or call our office at +971 50 170 1331.
+            <h2 className="text-2xl font-semibold text-white mb-4">5. Cookies</h2>
+            <p className="text-gray-400 leading-relaxed">
+              Our website may use cookies to enhance your browsing experience. You can choose to disable cookies through your browser settings, but this may affect the functionality of the website.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-white mb-4">6. Your Rights</h2>
+            <p className="text-gray-400 leading-relaxed">
+              You have the right to:
+            </p>
+            <ul className="list-disc list-inside text-gray-400 mt-3 space-y-2">
+              <li>Access your personal data</li>
+              <li>Correct inaccurate data</li>
+              <li>Request deletion of your data</li>
+              <li>Opt-out of marketing communications</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-white mb-4">7. Contact Us</h2>
+            <p className="text-gray-400 leading-relaxed">
+              If you have any questions about this Privacy Policy, please contact us at:
+            </p>
+            <p className="text-primary mt-3">
+              Email: info@alrashudin.com<br />
+              Phone: +971 50 170 1331<br />
+              Address: Industrial Area, Sajaa, Sharjah, UAE
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-white mb-4">8. Updates to This Policy</h2>
+            <p className="text-gray-400 leading-relaxed">
+              We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date.
+            </p>
+            <p className="text-gray-500 mt-4">
+              Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
             </p>
           </section>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-slate-200 text-center">
-          <Link
-            href="/"
-            className="text-red-600 hover:text-red-700 font-bold text-sm inline-flex items-center"
-          >
-            ← Return to Home Page
+        <div className="mt-12 pt-8 border-t border-border">
+          <Link href="/" className="text-primary hover:text-primary-dark transition-colors">
+            ← Back to Home
           </Link>
         </div>
       </div>
