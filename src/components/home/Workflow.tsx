@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 const steps = [
   {
     number: "01",
-    title: "Share Your Requirement",
+    title: "Share Your Part or Machine Data",
     description:
-      "Send a part number, machine model, photo, or description of the seal or component you need.",
+      "Send a part number, machinery model (Liebherr, Tadano, XCMG, etc.), cylinder dimensions, or photo of the seal.",
     icon: (
       <svg
-        className="w-8 h-8"
+        className="w-7 h-7"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -26,12 +26,12 @@ const steps = [
   },
   {
     number: "02",
-    title: "We Confirm Compatibility",
+    title: "Engineering Compatibility Check",
     description:
-      "Our team checks compatibility, dimensions, and identifies the best replacement option for your equipment.",
+      "Our technicians cross-reference OEM diagrams, verify groove tolerances, and confirm the exact fitment match.",
     icon: (
       <svg
-        className="w-8 h-8"
+        className="w-7 h-7"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -47,12 +47,12 @@ const steps = [
   },
   {
     number: "03",
-    title: "Receive Pricing Fast",
+    title: "Instant Quote & Fast Dispatch",
     description:
-      "You get a focused quote with support for urgent orders, bulk requirements, and international shipping.",
+      "Receive transparent pricing, lead time, and immediate dispatch via courier across UAE or global air freight.",
     icon: (
       <svg
-        className="w-8 h-8"
+        className="w-7 h-7"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -70,7 +70,7 @@ const steps = [
 
 export default function Workflow() {
   return (
-    <section className="py-24 bg-secondary">
+    <section className="py-24 bg-slate-50 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -80,15 +80,14 @@ export default function Workflow() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="text-primary text-sm font-medium uppercase tracking-wider">
-            How We Support
+          <span className="text-red-600 text-xs sm:text-sm font-bold uppercase tracking-wider inline-block bg-red-100/60 border border-red-200 px-3.5 py-1.5 rounded-full mb-3">
+            Streamlined Support
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mt-4 mb-4">
-            A Simple Sourcing Workflow
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+            A Straightforward Sourcing Workflow
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            We keep the process focused so you can identify the part, confirm
-            compatibility, and get pricing without unnecessary back-and-forth.
+          <p className="text-slate-600 max-w-2xl mx-auto text-base">
+            We eliminate downtime by verifying technical compatibility upfront and delivering fast turnaround on every single order.
           </p>
         </motion.div>
 
@@ -100,23 +99,23 @@ export default function Workflow() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="relative bg-card border border-border rounded-xl p-8 hover:border-primary/30 transition-colors"
+              transition={{ duration: 0.5, delay: index * 0.12 }}
+              className="relative bg-white border border-slate-200/90 rounded-2xl p-8 shadow-xs hover:border-red-300 hover:shadow-xl transition-all duration-300"
             >
-              {/* Step number */}
-              <div className="absolute top-6 right-6 text-5xl font-bold text-primary/10">
+              {/* Step number watermark */}
+              <div className="absolute top-6 right-6 text-5xl font-black text-red-100 select-none">
                 {step.number}
               </div>
 
               {/* Icon */}
-              <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6">
+              <div className="w-14 h-14 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center mb-6 border border-red-100 shadow-xs">
                 {step.icon}
               </div>
 
-              <h3 className="text-xl font-semibold text-white mb-3">
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
                 {step.title}
               </h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <p className="text-slate-600 text-sm leading-relaxed">
                 {step.description}
               </p>
             </motion.div>
@@ -128,32 +127,34 @@ export default function Workflow() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-slate-200"
         >
           {[
-            "Fast response within 24 hours",
-            "Verified OEM & aftermarket parts",
-            "Global shipping support",
-            "Bulk & urgent order handling",
+            "Fast quote within 2-4 hours",
+            "100% verified OEM compatibility",
+            "Door-to-door UAE courier delivery",
+            "Export packing for international orders",
           ].map((feature, index) => (
             <div
               key={index}
-              className="flex items-center space-x-3 text-gray-300 text-sm"
+              className="flex items-center space-x-3 text-slate-700 text-xs sm:text-sm font-semibold"
             >
-              <svg
-                className="w-5 h-5 text-green-500 flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
+              <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0">
+                <svg
+                  className="w-3.5 h-3.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2.5}
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </span>
               <span>{feature}</span>
             </div>
           ))}

@@ -4,11 +4,11 @@ import ContactInfo from "@/components/contact/ContactInfo";
 
 export default function ContactPage() {
   return (
-    <main>
+    <main className="bg-slate-50 min-h-screen">
       <ContactHero />
-      <div className="py-24 bg-background">
+      <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 items-start">
             <ContactForm />
             <ContactInfo />
           </div>
