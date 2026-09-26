@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function AboutContent() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-white border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
@@ -15,34 +15,31 @@ export default function AboutContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <span className="text-primary text-sm font-medium uppercase tracking-wider">
+            <span className="text-red-600 text-xs sm:text-sm font-bold uppercase tracking-wider inline-block bg-red-50 border border-red-100 px-3.5 py-1.5 rounded-full mb-3">
               Who We Are
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mt-4 mb-6">
-              Trusted Heavy Engineering Support
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-2 mb-6">
+              Dedicated Heavy Engineering & Hydraulic Seal Support
             </h2>
-            <div className="space-y-4 text-gray-400 leading-relaxed">
+            <div className="space-y-4 text-slate-600 leading-relaxed text-base">
               <p>
-                Al Rashudin Engineering is a precision machining and engineering
-                workshop established in 2002, built on hands-on expertise and a
-                deep understanding of heavy machinery.
+                Al Rashudin Engineering was established in 2002 in Sharjah, UAE,
+                founded on genuine workshop craftsmanship and an uncompromising
+                dedication to high-pressure mechanical systems.
               </p>
               <p>
-                From our earliest days, we have served the construction, crane,
-                and heavy equipment sectors, delivering reliable engineering
-                solutions, custom machining, and component repair. At a time
-                when most workshops avoided complex hydraulic systems, Al
-                Rashudin was among the first to undertake in-house hydraulic
-                seal manufacturing and repairs, setting a benchmark for
-                technical capability and confidence in the field.
+                From our earliest days, we have supported mobile crane rental
+                fleets, construction contractors, and industrial plants across the
+                Emirates. At a time when complex hydraulic cylinder rebuilds were
+                often deferred abroad, Al Rashudin invested directly in specialized
+                seal manufacturing, barrel honing, and precision machining tooling.
               </p>
               <p>
-                Today, Al Rashudin Engineering is positioned as a specialist
-                workshop brand for hydraulic seals, crane structural work,
-                precision turning, heavy fabrication, and component
-                restoration—combining practical workshop experience with strong
-                technical execution to handle complex and demanding repair
-                challenges.
+                Today, Al Rashudin Engineering stands as a premier regional supplier
+                for hydraulic seals, telescopic crane boom wear components, heavy
+                fabrication, and cylinder overhauls. We merge deep shop-floor
+                mastery with verified materials to tackle the most demanding
+                industrial maintenance challenges.
               </p>
             </div>
           </motion.div>
@@ -55,7 +52,7 @@ export default function AboutContent() {
             transition={{ duration: 0.5 }}
             className="relative"
           >
-            <div className="relative h-[500px] rounded-xl overflow-hidden">
+            <div className="relative h-[480px] rounded-3xl overflow-hidden border border-slate-200 shadow-lg">
               <Image
                 src="/images/workshop.jpg"
                 alt="Al Rashudin Engineering Workshop"
@@ -71,23 +68,25 @@ export default function AboutContent() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8"
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           {[
-            { value: "20+", label: "Years Experience" },
-            { value: "50+", label: "Expert Staff" },
-            { value: "5000+", label: "Projects Completed" },
-            { value: "50+", label: "Countries Served" },
+            { value: "20+", label: "Years in Business" },
+            { value: "50+", label: "Skilled Technicians" },
+            { value: "5,000+", label: "Cylinders & Parts Serviced" },
+            { value: "50+", label: "Export Destinations" },
           ].map((stat, index) => (
             <div
               key={index}
-              className="bg-card border border-border rounded-xl p-6 text-center"
+              className="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-center hover:border-red-300 transition-colors"
             >
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+              <div className="text-3xl sm:text-4xl font-black text-red-600 mb-1">
                 {stat.value}
               </div>
-              <div className="text-gray-400 text-sm">{stat.label}</div>
+              <div className="text-slate-600 text-xs sm:text-sm font-semibold">
+                {stat.label}
+              </div>
             </div>
           ))}
         </motion.div>

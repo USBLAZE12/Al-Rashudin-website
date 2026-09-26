@@ -6,34 +6,50 @@ import Image from "next/image";
 
 const features = [
   {
-    icon: "✓",
-    title: "Precision & Reliability",
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+      </svg>
+    ),
+    title: "Precision Engineering & OEM Compliance",
     description:
-      "Every seal and component is tested against strict fitment and durability standards, ensuring safe, reliable performance for heavy equipment operations.",
+      "Every seal and cylinder part is inspected against tight dimensional tolerances, ensuring reliable pressure holding and preventing unplanned crane downtime.",
   },
   {
-    icon: "✓",
-    title: "Fast Communication & Support",
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+      </svg>
+    ),
+    title: "Fast Response & WhatsApp Direct Desk",
     description:
-      "Quick response times, WhatsApp coordination, and direct technical guidance for urgent orders, seal replacements, and maintenance requirements.",
+      "Rapid quotation within hours, instant WhatsApp technical coordination, and rapid troubleshooting from experienced hydraulic mechanics.",
   },
   {
-    icon: "✓",
-    title: "Global Shipping Reach",
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+      </svg>
+    ),
+    title: "UAE Hub with Worldwide Export",
     description:
-      "We serve customers across 50+ countries with reliable shipping solutions designed for export-ready orders and bulk requirements.",
+      "Operating directly from Sharjah's industrial corridor, we dispatch daily across the UAE and export to 50+ countries via air and courier networks.",
   },
   {
-    icon: "✓",
-    title: "Extensive Inventory",
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+      </svg>
+    ),
+    title: "Comprehensive Stock & Custom Machining",
     description:
-      "From routine service seals to hard-to-source specialty components, we support a wide range of hydraulic and crane system requirements.",
+      "From standard metric/imperial seals to custom CNC-turned polyurethane profiles, we handle both standard inventory and obsolete seal replication.",
   },
 ];
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
@@ -43,17 +59,17 @@ export default function WhyChooseUs() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <span className="text-primary text-sm font-medium uppercase tracking-wider">
-              Why Choose Us
+            <span className="text-red-600 text-xs sm:text-sm font-bold uppercase tracking-wider inline-block bg-red-50 border border-red-100 px-3.5 py-1.5 rounded-full mb-3">
+              Why Choose Al Rashudin
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mt-4 mb-6">
-              The Al Rashudin Advantage
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-2 mb-6">
+              The Engineering Advantage for Heavy Machinery
             </h2>
-            <p className="text-gray-400 mb-8 leading-relaxed">
-              Comprehensive hydraulic seal and crane component solutions across
-              the UAE and beyond. From seal identification and sourcing to
-              delivery and technical support, we combine product expertise with
-              reliable service to keep your operations running smoothly.
+            <p className="text-slate-600 mb-8 leading-relaxed text-base">
+              With over 20 years of hands-on expertise in the UAE, Al Rashudin
+              combines deep practical knowledge of hydraulic cylinders and crane
+              components with swift, dependable service to keep your heavy
+              equipment running at peak efficiency.
             </p>
 
             <div className="space-y-6">
@@ -63,17 +79,17 @@ export default function WhyChooseUs() {
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  transition={{ duration: 0.3, delay: index * 0.08 }}
                   className="flex items-start space-x-4"
                 >
-                  <div className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">
+                  <div className="flex-shrink-0 w-10 h-10 bg-red-50 text-red-600 rounded-xl flex items-center justify-center font-bold border border-red-100 shadow-xs mt-0.5">
                     {feature.icon}
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-1">
+                    <h3 className="text-slate-900 font-bold mb-1 text-base">
                       {feature.title}
                     </h3>
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-slate-600 text-sm leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
@@ -81,28 +97,30 @@ export default function WhyChooseUs() {
               ))}
             </div>
 
-            <Link
-              href="/about"
-              className="mt-8 inline-flex items-center text-primary hover:text-primary-dark font-medium transition-colors"
-            >
-              About Company
-              <svg
-                className="w-5 h-5 ml-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+            <div className="mt-8">
+              <Link
+                href="/about"
+                className="inline-flex items-center space-x-2 text-red-600 hover:text-red-700 font-bold text-sm group"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </Link>
+                <span>Read About Our Company Heritage</span>
+                <svg
+                  className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </Link>
+            </div>
           </motion.div>
 
-          {/* Image */}
+          {/* Image & Stats Overlay */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -110,30 +128,31 @@ export default function WhyChooseUs() {
             transition={{ duration: 0.5 }}
             className="relative"
           >
-            <div className="relative h-[500px] rounded-xl overflow-hidden">
+            <div className="relative h-[480px] sm:h-[540px] rounded-3xl overflow-hidden border border-slate-200 shadow-lg">
               <Image
                 src="/images/workshop.jpg"
                 alt="Al Rashudin Engineering Workshop"
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
             </div>
+
             {/* Stats overlay */}
-            <div className="absolute bottom-6 left-6 right-6 grid grid-cols-3 gap-4">
+            <div className="absolute bottom-6 left-6 right-6 grid grid-cols-3 gap-3">
               {[
                 { value: "20+", label: "Years Experience" },
-                { value: "5000+", label: "Projects Done" },
+                { value: "5,000+", label: "Projects Done" },
                 { value: "50+", label: "Countries Served" },
               ].map((stat, index) => (
                 <div
                   key={index}
-                  className="bg-card/90 backdrop-blur-sm border border-border rounded-lg p-4 text-center"
+                  className="bg-white/95 backdrop-blur-md border border-slate-200/90 rounded-2xl p-4 text-center shadow-lg"
                 >
-                  <div className="text-2xl font-bold text-primary">
+                  <div className="text-2xl sm:text-3xl font-black text-red-600">
                     {stat.value}
                   </div>
-                  <div className="text-xs text-gray-400 mt-1">
+                  <div className="text-[11px] sm:text-xs font-semibold text-slate-600 mt-1">
                     {stat.label}
                   </div>
                 </div>

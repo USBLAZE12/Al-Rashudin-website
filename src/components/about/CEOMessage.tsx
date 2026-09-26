@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function CEOMessage() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-white border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Image */}
@@ -16,10 +16,10 @@ export default function CEOMessage() {
             transition={{ duration: 0.5 }}
             className="relative"
           >
-            <div className="relative h-[500px] rounded-xl overflow-hidden">
+            <div className="relative h-[480px] rounded-3xl overflow-hidden border border-slate-200 shadow-lg">
               <Image
                 src="/images/ceo.jpg"
-                alt="CEO"
+                alt="Hamid Ali Qureshi - Founder & CEO"
                 fill
                 className="object-cover"
               />
@@ -33,35 +33,44 @@ export default function CEOMessage() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <span className="text-primary text-sm font-medium uppercase tracking-wider">
-              Leadership
+            <span className="text-red-600 text-xs sm:text-sm font-bold uppercase tracking-wider inline-block bg-red-50 border border-red-100 px-3.5 py-1.5 rounded-full mb-3">
+              Leadership Insight
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mt-4 mb-6">
-              CEO&apos;s Message
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-2 mb-6">
+              Founder & CEO&apos;s Message
             </h2>
 
-            <div className="space-y-4">
-              <div className="relative">
+            <div className="space-y-6">
+              <div className="relative bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8">
                 <svg
-                  className="absolute -top-4 -left-4 w-12 h-12 text-primary/20"
+                  className="w-10 h-10 text-red-200 mb-3"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11h4v10H0z" />
                 </svg>
-                <p className="text-gray-300 text-lg leading-relaxed italic pl-8">
-                  Since 2002, Al Rashudin Engineering has been built on
-                  precision, responsibility, and hands-on engineering. From
-                  being among the early workshops to work directly on hydraulic
-                  systems and crane components to delivering reliable
-                  machining and repairs today, our focus has always been on
-                  doing the job right and standing behind our work.
+                <p className="text-slate-700 text-base sm:text-lg leading-relaxed italic">
+                  &ldquo;Since 2002, Al Rashudin Engineering has been built on three
+                  simple pillars: precision craftsmanship, unyielding reliability, and
+                  standing firmly behind every seal and overhaul we deliver. Whether a
+                  client needs an urgent replacement seal for a 500-ton mobile crane
+                  or a completely reconditioned cylinder, our promise is always the same:
+                  the job done right, tested thoroughly, and delivered on time.&rdquo;
                 </p>
-              </div>
 
-              <div className="mt-8">
-                <p className="text-white font-semibold text-lg">Hamid Ali Qureshi</p>
-                <p className="text-primary text-sm">Founder & CEO</p>
+                <div className="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
+                  <div>
+                    <p className="text-slate-900 font-extrabold text-lg">
+                      Hamid Ali Qureshi
+                    </p>
+                    <p className="text-red-600 font-bold text-xs uppercase tracking-wider">
+                      Founder & Chief Executive Officer
+                    </p>
+                  </div>
+                  <div className="text-xs font-mono font-bold text-slate-400 bg-white border border-slate-200 px-3 py-1 rounded-md">
+                    Est. 2002
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
