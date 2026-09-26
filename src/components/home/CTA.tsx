@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function CTA() {
   const whatsappNumber =
-    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971501234567";
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971542478662";
 
   return (
     <section className="py-24 bg-gradient-to-br from-red-600 via-red-700 to-red-800 text-white relative overflow-hidden shadow-inner">
@@ -29,19 +29,19 @@ export default function CTA() {
           className="text-center max-w-3xl mx-auto"
         >
           <span className="inline-block bg-white/20 backdrop-blur-xs text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-4 py-1.5 rounded-full mb-4">
-            Need Expert Hydraulic Help?
+            Need Custom Hydraulic Seals or Crane Parts?
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mt-2 mb-6 leading-tight">
-            Need Fast Support For Your Hydraulic Seal or Crane Part?
+            Need Fast Support For Your Hydraulic Seal or Heavy Vehicle Component?
           </h2>
           <p className="text-red-100 max-w-2xl mx-auto mb-10 text-base sm:text-lg leading-relaxed">
-            Send machine specs, broken seal dimensions, or part numbers. Our workshop team reviews requests immediately and guarantees quick technical response.
+            Send machine specs, seal dimensions, or part numbers. Al Rashudin Equipment specializes in manufacturing hydraulic and heavy-vehicle seals in custom sizes as well as supplying standard parts.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <a
               href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                "Hello Al Rashudin Engineering, I need assistance with a hydraulic part or crane component."
+                "Hello Al Rashudin Engineering, I need assistance with a hydraulic seal or heavy vehicle component."
               )}`}
               target="_blank"
               rel="noopener noreferrer"

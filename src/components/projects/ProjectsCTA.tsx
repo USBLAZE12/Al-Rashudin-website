@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function ProjectsCTA() {
   const whatsappNumber =
-    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971501234567";
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971542478662";
 
   return (
     <section className="py-24 bg-white border-t border-slate-200">
@@ -28,7 +28,7 @@ export default function ProjectsCTA() {
             </h2>
             <p className="text-red-100 text-sm sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
               Let&apos;s evaluate your requirements. Our engineering team is ready
-              to provide technical sizing, seal kitting, and repair estimates.
+              to provide technical sizing, custom seal manufacturing, and repair estimates.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a

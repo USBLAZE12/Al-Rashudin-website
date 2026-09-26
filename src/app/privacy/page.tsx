@@ -77,12 +77,12 @@ export default function PrivacyPage() {
             <p>
               For any questions regarding this Privacy Policy or your recorded details, please email{" "}
               <a
-                href="mailto:info@alrashudin.com"
+                href="mailto:account@alrashideenengg.com"
                 className="text-red-600 font-bold hover:underline"
               >
-                info@alrashudin.com
+                account@alrashideenengg.com
               </a>{" "}
-              or call our office at +971 50 170 1331.
+              or call our office at +971 054 247 8662.
             </p>
           </section>
         </div>

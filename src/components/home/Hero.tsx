@@ -1,82 +1,182 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
+const heroSlides = [
+  {
+    id: 1,
+    image: "/images/hero-slide-1.jpg",
+    badge: "Precision Hydraulic Engineering • Sharjah, UAE",
+    title: "Custom Hydraulic Seals & Precision Manufacturing",
+    description:
+      "Al Rashudin Equipment specializes in manufacturing hydraulic and heavy-vehicle seals in custom sizes, while also supplying standard-size seals and a range of hydraulic components such as bladder accumulators, hydraulic pumps, and related parts.",
+    tag: "Custom Seals Manufacturing",
+  },
+  {
+    id: 2,
+    image: "/images/hero-slide-2.jpg",
+    badge: "Heavy Equipment & Crane Cylinder Specialists",
+    title: "Crane Parts & Cylinder Reconditioning Overhaul",
+    description:
+      "Full teardown, chrome piston rod repair, and complete hydraulic cylinder rebuilding for mobile cranes, excavators, and heavy machinery fleets across the UAE.",
+    tag: "Cylinder Rebuild & Crane Parts",
+  },
+  {
+    id: 3,
+    image: "/images/hero-slide-3.jpg",
+    badge: "Hydraulic Pumps, Motors & Accumulators",
+    title: "Hydraulic Components & Bladder Accumulators",
+    description: "Supplying high-pressure hydraulic pumps, bladder accumulators, control valves, and precision heavy-vehicle replacement parts with OEM specifications.",
+    tag: "Hydraulic Power Solutions",
+  },
+  {
+    id: 4,
+    image: "/images/hero-slide-4.jpg",
+    badge: "Custom Sizes & Standard Seals Stock",
+    title: "Heavy-Vehicle Seals & Complete Seal Kits",
+    description:
+      "Immediate workshop availability of O-ring kits, piston seals, wiper seals, rod seals, and bespoke sealing solutions engineered for extreme pressure applications.",
+    tag: "Heavy-Vehicle Seals Stock",
+  },
+  {
+    id: 5,
+    image: "/images/hero-slide-5.jpg",
+    badge: "Sharjaa Workshop & On-Site Engineering Support",
+    title: "Crane Structural Repair & Mechanical Maintenance",
+    description:
+      "Comprehensive crane boom repair, structural inspection, and hydraulic system troubleshooting combining workshop precision with expert technical guidance.",
+    tag: "Crane Maintenance Bay",
+  },
+];
+
 export default function Hero() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
   const whatsappNumber =
-    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971501234567";
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971542478662";
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  }, []);
+
+  // Auto-advance slideshow every 5 seconds
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, nextSlide]);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
-      {/* Background Image with Crisp Light Gradient */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/hero-bg.jpg"
-          alt="Hydraulic seals and crane parts"
-          fill
-          className="object-cover opacity-35"
-          priority
-        />
-        <div className="hero-gradient absolute inset-0" />
+    <section
+      className="relative min-h-[92vh] lg:min-h-screen flex items-center overflow-hidden bg-slate-950 pt-20"
+      onMouseEnter={() => setIsAutoPlaying(false)}
+      onMouseLeave={() => setIsAutoPlaying(true)}
+    >
+      {/* Background Slideshow with Crossfade */}
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={heroSlides[currentSlide].image}
+              alt={heroSlides[currentSlide].title}
+              fill
+              className="object-cover object-center"
+              priority
+            />
+          </motion.div>
+        </AnimatePresence>
+
+        {/* High-Contrast Gradient Overlay for Legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/75 to-slate-950/40 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/30 z-10" />
       </div>
 
-      {/* Decorative ambient elements */}
-      <div className="absolute top-1/4 right-10 w-96 h-96 bg-red-100/40 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-72 h-72 bg-red-50/60 rounded-full blur-2xl pointer-events-none" />
-
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-36">
+      {/* Hero Content */}
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 w-full">
         <div className="max-w-3xl">
+          {/* Tag / Badge */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`badge-${currentSlide}`}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.4 }}
+              className="inline-flex items-center space-x-2.5 bg-red-600/90 backdrop-blur-md border border-red-500/50 rounded-full px-4 py-2 mb-6 shadow-lg"
+            >
+              <span className="w-2.5 h-2.5 bg-white rounded-full animate-pulse" />
+              <span className="text-white text-xs sm:text-sm font-bold uppercase tracking-wider">
+                {heroSlides[currentSlide].badge}
+              </span>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Heading */}
+          <AnimatePresence mode="wait">
+            <motion.h1
+              key={`title-${currentSlide}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4, delay: 0.05 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.12] mb-6 tracking-tight drop-shadow-md"
+            >
+              {heroSlides[currentSlide].title.split("&").map((part, index, array) => (
+                <span key={index}>
+                  {part}
+                  {index < array.length - 1 && (
+                    <span className="text-red-500 font-black"> &</span>
+                  )}
+                </span>
+              ))}
+            </motion.h1>
+          </AnimatePresence>
+
+          {/* Description */}
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={`desc-${currentSlide}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="text-base sm:text-lg md:text-xl text-slate-200 mb-8 leading-relaxed max-w-2xl font-normal drop-shadow-sm"
+            >
+              {heroSlides[currentSlide].description}
+            </motion.p>
+          </AnimatePresence>
+
+          {/* CTA Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center space-x-2 bg-red-50 border border-red-200/80 rounded-full px-4 py-2 mb-6 shadow-xs"
-          >
-            <span className="w-2.5 h-2.5 bg-red-600 rounded-full pulse-animation" />
-            <span className="text-red-700 text-xs sm:text-sm font-bold uppercase tracking-wider">
-              Precision Hydraulic Engineering in UAE • Since 2002
-            </span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.12] mb-6 tracking-tight"
-          >
-            Hydraulic Seals &{" "}
-            <span className="text-red-600 inline-block">
-              Crane Components
-            </span>
-          </motion.h1>
-
-          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl font-normal"
-          >
-            Al Rashudin Engineering provides OEM-grade hydraulic seal kits,
-            crane parts, and precision industrial components. We deliver
-            reliable heavy equipment solutions across the UAE and globally.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-12"
+            className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-10"
           >
             <Link
               href="/products"
-              className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl text-base font-bold transition-all shadow-md shadow-red-500/25 hover:shadow-lg inline-flex items-center justify-center"
+              className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl text-base font-bold transition-all shadow-lg shadow-red-600/40 hover:shadow-red-600/60 inline-flex items-center justify-center group"
             >
               Explore Products
               <svg
-                className="w-5 h-5 ml-2"
+                className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -92,20 +192,20 @@ export default function Hero() {
 
             <Link
               href="/contact"
-              className="bg-white hover:bg-slate-50 border-2 border-slate-200 hover:border-red-600 text-slate-800 hover:text-red-600 px-8 py-4 rounded-xl text-base font-bold transition-all shadow-xs inline-flex items-center justify-center"
+              className="bg-slate-900/80 hover:bg-slate-900 text-white border-2 border-slate-600 hover:border-red-500 px-8 py-4 rounded-xl text-base font-bold transition-all shadow-md backdrop-blur-sm inline-flex items-center justify-center"
             >
               Request a Quote
             </Link>
           </motion.div>
 
-          {/* Social Links & Trust Indicators */}
+          {/* Social Quick Connect */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex items-center space-x-4 pt-2 border-t border-slate-200/80"
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex items-center space-x-4 pt-4 border-t border-slate-800/80"
           >
-            <span className="text-slate-500 text-xs font-semibold uppercase tracking-wider">
+            <span className="text-slate-400 text-xs font-semibold uppercase tracking-wider">
               Quick Connect:
             </span>
             <div className="flex space-x-2">
@@ -113,7 +213,7 @@ export default function Hero() {
                 href={`https://wa.me/${whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-white border border-slate-200 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 rounded-xl flex items-center justify-center text-slate-600 shadow-xs transition-colors"
+                className="w-10 h-10 bg-slate-900/90 border border-slate-700 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 rounded-xl flex items-center justify-center text-slate-300 transition-colors shadow-sm"
                 aria-label="WhatsApp"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -121,41 +221,65 @@ export default function Hero() {
                 </svg>
               </a>
               <a
-                href={process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://linkedin.com/company/alrashudin"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-white border border-slate-200 hover:bg-red-600 hover:text-white hover:border-red-600 rounded-xl flex items-center justify-center text-slate-600 shadow-xs transition-colors"
-                aria-label="LinkedIn"
+                href="tel:+9710542478662"
+                className="w-10 h-10 bg-slate-900/90 border border-slate-700 hover:bg-red-600 hover:text-white hover:border-red-600 rounded-xl flex items-center justify-center text-slate-300 transition-colors shadow-sm"
+                aria-label="Call Us"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
               </a>
             </div>
+            <span className="text-slate-300 font-bold text-xs sm:text-sm">
+              +971 054 247 8662
+            </span>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.8 }}
-        className="absolute bottom-6 left-1/2 transform -translate-x-1/2"
-      >
-        <div className="flex flex-col items-center space-y-2">
-          <span className="text-slate-400 text-xs font-semibold uppercase tracking-wider">
-            Scroll to explore
+      {/* Slideshow Controls Bar at Bottom Right */}
+      <div className="absolute bottom-8 right-4 sm:right-8 lg:right-12 z-20 flex flex-col items-end space-y-3">
+        {/* Navigation Arrows & Counter */}
+        <div className="flex items-center space-x-3 bg-slate-900/80 backdrop-blur-md border border-slate-800 p-2 rounded-2xl shadow-2xl">
+          <button
+            onClick={prevSlide}
+            className="p-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-red-600 transition-colors"
+            aria-label="Previous image"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          <span className="text-xs font-mono font-bold text-white px-2">
+            0{currentSlide + 1} / 0{heroSlides.length}
           </span>
-          <div className="w-5 h-9 border-2 border-slate-300 rounded-full flex justify-center">
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1.5 h-1.5 bg-red-600 rounded-full mt-2"
-            />
-          </div>
+
+          <button
+            onClick={nextSlide}
+            className="p-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-red-600 transition-colors"
+            aria-label="Next image"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
-      </motion.div>
+
+        {/* Thumbnail Dots */}
+        <div className="flex space-x-2 bg-slate-900/60 backdrop-blur-md border border-slate-800/80 px-3 py-2 rounded-full">
+          {heroSlides.map((slide, idx) => (
+            <button
+              key={slide.id}
+              onClick={() => setCurrentSlide(idx)}
+              className={`h-2.5 rounded-full transition-all duration-300 ${
+                currentSlide === idx ? "w-8 bg-red-600" : "w-2.5 bg-slate-600 hover:bg-slate-400"
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

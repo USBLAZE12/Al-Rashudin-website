@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function ServicesCTA() {
   const whatsappNumber =
-    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971501234567";
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971542478662";
 
   return (
     <section className="py-24 bg-white border-t border-slate-200">

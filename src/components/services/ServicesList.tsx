@@ -135,7 +135,7 @@ export default function ServicesList() {
 
                   <a
                     href={`https://wa.me/${
-                      process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971501234567"
+                      process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971542478662"
                     }?text=${encodeURIComponent(
                       `Hello, I would like to inquire about your ${service.title} service.`
                     )}`}

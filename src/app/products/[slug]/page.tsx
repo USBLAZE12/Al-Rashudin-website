@@ -55,12 +55,12 @@ export default async function ProductDetailPage({ params }: PageProps) {
 
   const relatedProducts = getRelatedProducts(product.id, product.category);
   const whatsappNumber =
-    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971501234567";
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971542478662";
   const whatsappMessage = encodeURIComponent(
     `Hello Al Rashudin Engineering, I am interested in inquiring about ${product.name} (Part No: ${product.partNo}). Please provide pricing, stock availability, and lead time.`
   );
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-  const phone = process.env.NEXT_PUBLIC_CONTACT_PHONE || "+971 50 170 1331";
+  const phone = process.env.NEXT_PUBLIC_CONTACT_PHONE || "+971 054 247 8662";
 
   return (
     <div className="bg-white min-h-screen pt-28 pb-20">

@@ -26,14 +26,14 @@ export default function Header() {
   }, []);
 
   const whatsappNumber =
-    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971501234567";
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971542478662";
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80"
-          : "bg-white/90 backdrop-blur-md border-b border-slate-100"
+          ? "bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-slate-800"
+          : "bg-slate-900/85 backdrop-blur-md border-b border-slate-800/60"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,10 +46,10 @@ export default function Header() {
               </span>
             </div>
             <div>
-              <h1 className="text-xl font-extrabold text-slate-900 tracking-tight leading-none group-hover:text-red-600 transition-colors">
+              <h1 className="text-xl font-extrabold text-white tracking-tight leading-none group-hover:text-red-500 transition-colors">
                 Al Rashudin
               </h1>
-              <p className="text-[11px] font-bold text-red-600 uppercase tracking-widest mt-0.5">
+              <p className="text-[11px] font-bold text-red-500 uppercase tracking-widest mt-0.5">
                 Engineering
               </p>
             </div>
@@ -61,7 +61,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="animated-underline text-sm font-semibold text-slate-700 hover:text-red-600 transition-colors"
+                className="animated-underline text-sm font-semibold text-slate-200 hover:text-red-500 transition-colors"
               >
                 {item.name}
               </Link>
@@ -92,7 +92,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-slate-700 hover:text-red-600 p-2 rounded-lg transition-colors"
+            className="lg:hidden text-slate-200 hover:text-red-500 p-2 rounded-lg transition-colors"
             aria-label="Toggle menu"
           >
             <svg
@@ -129,7 +129,7 @@ export default function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="lg:hidden bg-white border-t border-slate-200 shadow-xl"
+            className="lg:hidden bg-slate-900 border-t border-slate-800 shadow-xl"
           >
             <div className="px-4 py-6 space-y-3">
               {navigation.map((item) => (
@@ -137,12 +137,12 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="block text-slate-800 hover:text-red-600 font-semibold py-2 text-base transition-colors"
+                  className="block text-slate-200 hover:text-red-500 font-semibold py-2 text-base transition-colors"
                 >
                   {item.name}
                 </Link>
               ))}
-              <div className="pt-4 space-y-3 border-t border-slate-100">
+              <div className="pt-4 space-y-3 border-t border-slate-800">
                 <a
                   href={`https://wa.me/${whatsappNumber}`}
                   target="_blank"
