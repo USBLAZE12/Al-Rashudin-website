@@ -23,23 +23,13 @@ export default function AboutContent() {
             </h2>
             <div className="space-y-4 text-slate-600 leading-relaxed text-base">
               <p>
-                Al Rashudin Engineering was established in 2002 in Sharjah, UAE,
-                founded on genuine workshop craftsmanship and an uncompromising
-                dedication to high-pressure mechanical systems.
+                Al Rashudin Equipment specializes in manufacturing hydraulic and heavy-vehicle seals in custom sizes, while also supplying standard-size seals and a range of hydraulic components such as bladder accumulators, hydraulic pumps, and related parts.
               </p>
               <p>
-                From our earliest days, we have supported mobile crane rental
-                fleets, construction contractors, and industrial plants across the
-                Emirates. At a time when complex hydraulic cylinder rebuilds were
-                often deferred abroad, Al Rashudin invested directly in specialized
-                seal manufacturing, barrel honing, and precision machining tooling.
+                Established in 2002 in Sharjah, UAE, our facility was founded on genuine workshop craftsmanship and an uncompromising dedication to high-pressure mechanical systems.
               </p>
               <p>
-                Today, Al Rashudin Engineering stands as a premier regional supplier
-                for hydraulic seals, telescopic crane boom wear components, heavy
-                fabrication, and cylinder overhauls. We merge deep shop-floor
-                mastery with verified materials to tackle the most demanding
-                industrial maintenance challenges.
+                Today, Al Rashudin Engineering stands as a premier regional supplier for custom-molded hydraulic seals, telescopic crane wear components, heavy vehicle seals, hydraulic pumps, and complete cylinder overhauls. We merge shop-floor mastery with verified materials to tackle demanding industrial maintenance challenges.
               </p>
             </div>
           </motion.div>

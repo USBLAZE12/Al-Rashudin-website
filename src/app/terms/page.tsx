@@ -65,10 +65,10 @@ export default function TermsPage() {
             <p>
               For legal or trade inquiries, contact Al Rashudin Engineering at{" "}
               <a
-                href="mailto:info@alrashudin.com"
+                href="mailto:account@alrashideenengg.com"
                 className="text-red-600 font-bold hover:underline"
               >
-                info@alrashudin.com
+                account@alrashideenengg.com
               </a>.
             </p>
           </section>

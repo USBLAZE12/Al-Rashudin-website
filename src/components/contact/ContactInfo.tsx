@@ -48,9 +48,9 @@ const contactDetails = [
       </svg>
     ),
     label: "Direct Phone Support",
-    value: process.env.NEXT_PUBLIC_CONTACT_PHONE || "+971 50 170 1331",
+    value: process.env.NEXT_PUBLIC_CONTACT_PHONE || "+971 054 247 8662",
     link: `tel:${(
-      process.env.NEXT_PUBLIC_CONTACT_PHONE || "+971501701331"
+      process.env.NEXT_PUBLIC_CONTACT_PHONE || "+9710542478662"
     ).replace(/\s+/g, "")}`,
   },
   {
@@ -70,9 +70,9 @@ const contactDetails = [
       </svg>
     ),
     label: "Official Sales Email",
-    value: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@alrashudin.com",
+    value: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "account@alrashideenengg.com",
     link: `mailto:${
-      process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@alrashudin.com"
+      process.env.NEXT_PUBLIC_CONTACT_EMAIL || "account@alrashideenengg.com"
     }`,
   },
   {
@@ -82,9 +82,9 @@ const contactDetails = [
       </svg>
     ),
     label: "Instant WhatsApp Desk",
-    value: "Start Live Technical Chat",
+    value: "+971 054 247 8662 (WhatsApp)",
     link: `https://wa.me/${
-      process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971501234567"
+      process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971542478662"
     }`,
   },
 ];

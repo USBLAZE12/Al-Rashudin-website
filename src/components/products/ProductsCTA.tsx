@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function ProductsCTA() {
   const whatsappNumber =
-    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971501234567";
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971542478662";
 
   return (
     <section className="py-20 bg-white border-t border-slate-200">
@@ -22,13 +22,13 @@ export default function ProductsCTA() {
 
           <div className="relative z-10 max-w-2xl mx-auto">
             <span className="inline-block bg-white/20 backdrop-blur-xs text-white text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-4">
-              Need a Custom or Hard-to-Find Part?
+              Need a Custom or Hard-to-Find Seal?
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
-              Can&apos;t Find Your Specific Part Number?
+              Can&apos;t Find Your Specific Hydraulic Seal Size?
             </h2>
             <p className="text-red-100 text-sm sm:text-base mb-8 leading-relaxed">
-              Send us a photo of your machine nameplate, cylinder dimensions, or broken seal sample. Our engineering workshop will identify, machine, or source the exact replacement with zero hassle.
+              Al Rashudin Equipment specializes in manufacturing hydraulic and heavy-vehicle seals in custom sizes, while also supplying standard-size seals and a range of hydraulic components such as bladder accumulators, hydraulic pumps, and related parts.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
